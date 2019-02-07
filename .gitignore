@@ -44,6 +44,7 @@ typings/
 
 # Optional eslint cache
 .eslintcache
+.cache
 
 # Optional REPL history
 .node_repl_history
@@ -59,3 +60,5 @@ typings/
 
 # next.js build output
 .next
+# build folder
+public
