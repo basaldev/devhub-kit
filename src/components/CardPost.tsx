@@ -1,7 +1,7 @@
 import { Link } from 'gatsby';
 import { Box, Heading, Image, Text } from 'grommet';
 import * as React from 'react';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 
 const CardLink = styled(Link)`
   :hover {

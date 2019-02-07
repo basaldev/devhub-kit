@@ -4,8 +4,6 @@ import { dxc } from 'grommet-theme-dxc';
 import { aruba } from 'grommet-theme-aruba';
 import * as React from 'react';
 import { createGlobalStyle } from 'styled-components';
-import { Global, css } from '@emotion/core'
-
 
 import siteConfig from '../../site-config';
 
@@ -15,7 +13,7 @@ import CardProfile from './CardProfile';
 import SiteFooter from './SiteFooter';
 import SiteHeader from './SiteHeader';
 
-const GlobalStyle = css`
+const GlobalStyle = createGlobalStyle`
   img {
     max-width: 100%;
   }
@@ -42,7 +40,7 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => (
   <Grommet theme={THEMES[siteConfig.theme || 'grommet']}>
     <Grommet theme={siteTheme}>
-      <Global styles={GlobalStyle} />
+      <GlobalStyle />
       <Box direction="column" align="center">
         <Box width="xlarge">
           <SiteHeader />
