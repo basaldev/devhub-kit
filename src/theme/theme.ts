@@ -1,9 +1,9 @@
 // https://github.com/grommet/grommet/wiki/Grommet-v2-theming-documentation
-import { colors, types, overides, gridSpacing, borderSize, breakpoints } from './overides'
+import { colors, types, gridSpacing, borderSize, breakpoints, globalOverides, componentOverides } from './overides'
 import { elevations } from './mixin';
 import { defaultsDeep } from "lodash";
 
-const global = {
+const defaultGlobal = {
   "colors": {
     "icon": {
       "dark": "light-1",
@@ -109,4 +109,8 @@ const global = {
   "size": gridSpacing.size,
 };
 
-export default defaultsDeep(global, overides);
+const global = defaultsDeep({}, globalOverides, defaultGlobal);
+export default {
+  global,
+  ...componentOverides
+}

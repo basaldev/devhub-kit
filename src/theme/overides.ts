@@ -80,7 +80,7 @@ export const breakpoints = {
   "large": {}
 };
 
-export const overides = {
+export const componentOverides = {
   "anchor": {
     "textDecoration": "none",
     "color": {
@@ -284,5 +284,6 @@ export const overides = {
       }
     },
     "size": formFields.sizes.medium,
-  }
+  },
 }
+export const globalOverides = {}
