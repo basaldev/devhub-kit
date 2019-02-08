@@ -1,6 +1,5 @@
 import { graphql } from 'gatsby';
-import { Box, Button, Heading, Image, Text } from 'grommet';
-import { Next as NextIcon, Previous as PreviousIcon } from 'grommet-icons';
+import { Box, Heading, Image, Text } from 'grommet';
 import * as _ from 'lodash/fp';
 import * as React from 'react';
 import Helmet from 'react-helmet';
@@ -35,7 +34,7 @@ const PeoplePost = ({ data }: PostProps) => {
   const siteTitle = data.site.siteMetadata.title;
   const siteDescription = post.excerpt;
   return (
-    <Layout>
+    <Layout seo={{isPost: true, node:post}}>
       <div>
         <article>
           <Box margin="small">
@@ -102,13 +101,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
-        cover {
-          childImageSharp {
-            fluid(maxWidth: 1024) {
-              src
-            }
-          }
-        }
+
       }
     }
   }

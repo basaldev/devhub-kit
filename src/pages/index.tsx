@@ -4,6 +4,8 @@ import * as React from 'react';
 import Helmet from 'react-helmet';
 import CardPost from '../components/CardPost';
 import Layout from '../components/Layout';
+import { CheckBox, RadioButton } from 'grommet';
+import { Inbox} from 'grommet-icons';
 
 interface BlogIndexProps {
   data: {
@@ -25,13 +27,19 @@ const BlogIndex = ({ data }: BlogIndexProps) => {
   const posts = data.allMarkdownRemark.edges;
 
   return (
-    <Layout>
+    <Layout seo={{
+      isPost: false
+    }} > {/* default SEO */}
       <Helmet
         htmlAttributes={{ lang: 'en' }}
         meta={[{ name: 'description', content: siteDescription }]}
         title={siteTitle}
       />
       <main>
+        <CheckBox  checked={true} readOnly />
+        <RadioButton name="testing" checked={true} readOnly/>
+        <CheckBox  checked={true} toggle readOnly />
+        <Inbox size="small" />
         {posts.map(({ node }: any) => {
           const title = _.getOr(
             node.frontmatter.title,
@@ -43,7 +51,6 @@ const BlogIndex = ({ data }: BlogIndexProps) => {
               {node.frontmatter.cover === null ? (
                 <CardPost
                   link={node.fields.slug}
-                  cover=""
                   title={title}
                   date={node.frontmatter.date}
                   excerpt={node.excerpt}
@@ -51,7 +58,6 @@ const BlogIndex = ({ data }: BlogIndexProps) => {
               ) : (
                   <CardPost
                     link={node.fields.slug}
-                    cover={node.frontmatter.cover.childImageSharp.fluid.src}
                     title={title}
                     date={node.frontmatter.date}
                     excerpt={node.excerpt}
@@ -76,7 +82,7 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter:{frontmatter:{posttype:{eq:"blog-post"}}},
+      filter:{frontmatter:{posttype:{eq:"post"}}},
       sort: { fields: [frontmatter___date], order: DESC}) {
       edges {
         node {
@@ -88,13 +94,6 @@ export const pageQuery = graphql`
             date(formatString: "DD MMMM, YYYY")
             title
             posttype
-            cover {
-              childImageSharp {
-                fluid {
-                  src
-                }
-              }
-            }
           }
         }
     }

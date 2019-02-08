@@ -65,7 +65,6 @@ export default () => (
       </Box>
       <Box overflow="hidden">
         <Text size="small" color="text">
-          <Markdown>{siteConfig.authorBio}</Markdown>
         </Text>
       </Box>
     </Box>

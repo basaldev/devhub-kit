@@ -21,16 +21,9 @@ interface CardPostProps {
 const CardPost = (props: CardPostProps) => (
   <article>
     <Box
-      round="small"
-      elevation="small"
-      border={{
-        side: 'all',
-        color: 'border',
-        size: 'xsmall'
-      }}
       margin={{
         top: 'small',
-        bottom: 'medium',
+        bottom: 'small',
         right: 'small',
         left: 'small'
       }}
@@ -38,8 +31,8 @@ const CardPost = (props: CardPostProps) => (
       <CardLink to={props.link}>
         {props.cover ? (
           <div>
-            <Box round={{ size: 'small', corner: 'top' }} overflow="hidden">
-              <Box height="small" background="border">
+            <Box overflow="hidden">
+              <Box height="small" >
                 <Image src={props.cover} fit="cover" />
               </Box>
             </Box>
@@ -49,7 +42,7 @@ const CardPost = (props: CardPostProps) => (
         )}
 
         <Box pad="medium">
-          <Heading margin={{ vertical: 'small' }} level="2">
+          <Heading margin={{ vertical: 'small' }} level="2" size="medium">
             {props.title}
           </Heading>
           <Text color="text">{props.excerpt}</Text>

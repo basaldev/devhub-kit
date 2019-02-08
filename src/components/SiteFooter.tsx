@@ -7,7 +7,6 @@ export default () => (
   <footer>
     <Box pad="large" align="center">
       <Text color="text">
-        <Markdown>{siteConfig.footerText}</Markdown>
       </Text>
     </Box>
   </footer>

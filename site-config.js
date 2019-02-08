@@ -1,14 +1,9 @@
 module.exports = {
-  //
-  // Change information to your own:
-  //
-  // Site Info:
   title: 'Gatsby Starter Blog Grommet v2',
   description: 'This is a DEMO site! SSG - Gatsby JS, UI - Grommet v2',
   siteUrl: 'https://ganevru.github.io/gatsby-starter-blog-grommet/',
-  footerText:
-    '**2018**<br><br>Go here: site-config.js, and replace this text with your own', // You can use Markdown markup here
-
+  logo: '/logo.svg',
+  company: 'Your Company',
   // Blog Author Info:
   author: 'Ivan Ganev',
   authorImage:
@@ -18,15 +13,19 @@ module.exports = {
   social: {
     twitter: 'ganevru',
     github: 'ganevru',
-    reddit: 'ganevru'
+    reddit: 'ganevru',
+    medium: '',
+    discord: '',
   },
-
-  // Services:
-  googleAnalyticsTrackingId: `ADD YOUR TRACKING ID HERE`,
-
-  // Site Style:
-  theme: 'grommet', // grommet | dark | base | dxc | aruba
-  font: '', // Roboto
-  fontHeadings: '', // Merriweather
-  brandColor: '#EE3B50' // #7D4CDB
+  meta: {
+    banner: '',
+    title: '',
+    description: '',
+    language: ''
+  },
+  intergrations: {
+    facebookId: '',
+    googleAnalyticsTrackingId: '',
+    googleTagManager: ''
+  }
 };

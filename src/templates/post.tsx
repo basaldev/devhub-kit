@@ -34,18 +34,11 @@ interface BlogPostProps {
 
 const blogPost = ({ data, pageContext: { previous, next } }: BlogPostProps) => {
   const post = data.markdownRemark;
-  const siteTitle = data.site.siteMetadata.title;
-  const siteDescription = post.excerpt;
   return (
-    <Layout>
+    <Layout seo={{isPost: true, node:post}}>
       <div>
         <article>
           <Box margin="small">
-            <Helmet
-              htmlAttributes={{ lang: 'en' }}
-              meta={[{ name: 'description', content: siteDescription }]}
-              title={post.frontmatter.title + '|' + siteTitle}
-            />
             <div>
               <header>
                 {post.frontmatter.cover ? (
@@ -119,14 +112,9 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
+        author
         date(formatString: "MMMM DD, YYYY")
-        cover {
-          childImageSharp {
-            fluid(maxWidth: 1024) {
-              src
-            }
-          }
-        }
+
       }
     }
   }

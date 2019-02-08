@@ -1,46 +1,32 @@
 import { Box, Grommet, FormField, TextInput, Select } from 'grommet';
-import { base, dark, grommet } from 'grommet/themes';
-import { dxc } from 'grommet-theme-dxc';
-import { aruba } from 'grommet-theme-aruba';
 import * as React from 'react';
 import { createGlobalStyle } from 'styled-components';
-
-import siteConfig from '../../site-config';
-
 import siteTheme from '../site-theme';
 
 import CardProfile from './CardProfile';
 import SiteFooter from './SiteFooter';
 import SiteHeader from './SiteHeader';
+import SEO from './SEO';
+import config from '../../site-config';
+// import '../../static/fonts.css';
+// import '../../static/critical.css';
 
 const GlobalStyle = createGlobalStyle`
-  img {
-    max-width: 100%;
-  }
-  body {
-    margin: 0;
-  }
-  a:hover {
-    opacity: 0.9;
-  }
+  // Anything after critical CSS load
 `;
-
-const THEMES = {
-  grommet,
-  base,
-  dark,
-  dxc,
-  aruba
-};
 
 interface LayoutProps {
   children: any;
+  seo: {
+    isPost: boolean,
+    node?: any
+  };
 }
 
-const Layout = ({ children }: LayoutProps) => (
-  <Grommet theme={THEMES[siteConfig.theme || 'grommet']}>
+const Layout = ({ children, seo }: LayoutProps) => (
     <Grommet theme={siteTheme}>
       <GlobalStyle />
+      <SEO postSEO={seo.isPost} config={config} postNode={seo.node} />
       <Box direction="column" align="center">
         <Box width="xlarge">
           <SiteHeader />
@@ -69,7 +55,6 @@ const Layout = ({ children }: LayoutProps) => (
       </Box>
       <SiteFooter />
     </Grommet>
-  </Grommet>
 );
 
 export default Layout;

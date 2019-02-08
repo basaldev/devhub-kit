@@ -13,7 +13,7 @@ exports.templateSelector = (post, posts, index) => {
 const template = path.resolve(`./src/templates/${post.node.frontmatter.posttype}.tsx`);
 
 switch (post.node.frontmatter.posttype) {
-  case 'blog-post':
+  case 'post':
   return {
     path: post.node.fields.slug,
     component: template,
