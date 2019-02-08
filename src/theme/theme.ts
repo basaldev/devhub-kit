@@ -1,5 +1,5 @@
 // https://github.com/grommet/grommet/wiki/Grommet-v2-theming-documentation
-import { colors, types, gridSpacing, borderSize, breakpoints, globalOverides, componentOverides } from './overides'
+import { colors, types, gridSpacing, borderSize, breakpoints, globalOverides, componentOverides } from './overrides'
 import { elevations } from './mixin';
 import { defaultsDeep } from "lodash";
 
