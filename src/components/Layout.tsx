@@ -1,7 +1,7 @@
 import { Box, Grommet, FormField, TextInput, Select } from 'grommet';
 import * as React from 'react';
 import { createGlobalStyle } from 'styled-components';
-import siteTheme from '../site-theme';
+import siteTheme from '../theme/theme';
 
 import CardProfile from './CardProfile';
 import SiteFooter from './SiteFooter';
