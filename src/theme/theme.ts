@@ -107,6 +107,209 @@ const defaultGlobal = {
   },
   "spacing": gridSpacing.spacing,
   "size": gridSpacing.size,
+  "anchor": {
+    "textDecoration": "none",
+    "color": {
+      "dark": "accent-1",
+      "light": "brand"
+    },
+    "hover": {
+      "textDecoration": "underline"
+    }
+  },
+  "button": {
+    "border": {
+      "width": borderSize.medium,
+      "radius": "0"
+    },
+    "primary": {},
+    "disabled": {
+      "opacity": 0.3
+    },
+    "padding": {
+      "vertical": "8px",
+      "horizontal": "16px"
+    }
+  },
+  "checkBox": {
+    "border": {
+      "color": {
+        "dark": "light-1",
+        "light": "dark-1"
+      },
+      "width": borderSize.medium,
+    },
+    "check": {
+      "radius": "0px",
+      "thickness": borderSize.medium
+    },
+    "hover": {
+      "border": {
+        "color": {
+          "dark": "white",
+          "light": "black"
+        }
+      }
+    },
+    "size": formFields.sizes.medium,
+    "toggle": {
+      "color": {
+        "dark": "light-1",
+        "light": "dark-1"
+      },
+    }
+  },
+  "formField": {
+    "border": {
+      "color": "border",
+      "width": borderSize.medium,
+      "position": "inner",
+      "side": "bottom",
+      "error": {
+        "color": {
+          "dark": "white",
+          "light": "status-critical"
+        }
+      }
+    },
+    "error": {
+      "color": {
+        "dark": "status-critical",
+        "light": "status-critical"
+      }
+    },
+    "help": {
+      "color": {
+        "dark": "dark-3",
+        "light": "dark-3"
+      }
+    },
+  },
+  "heading": {
+    "font": {
+      "family": types.families.headings,
+    },
+    "level": {
+      "1": {
+        "small": {
+          "size": `${types.sizes.large/2}px`,
+          "height": "normal",
+        },
+        "medium": {
+          "size": `${types.sizes.large}px`,
+          "height": "normal",
+        },
+        "large": {
+          "size": `${types.sizes.large*2}px`,
+          "height": "normal",
+        },
+        "xlarge": {
+          "size": `${types.sizes.large*4}px`,
+          "height": "normal",
+        }
+      },
+      "2": {
+        "small": {
+          "size": `${types.sizes.medium/2}px`,
+          "height": "normal",
+        },
+        "medium": {
+          "size": `${types.sizes.medium}px`,
+          "height": "normal",
+        },
+        "large": {
+          "size": `${types.sizes.medium*1.5}px`,
+          "height": "normal",
+        },
+        "xlarge": {
+          "size": `${types.sizes.medium*2}px`,
+          "height": "normal",
+        }
+      },
+      "3": {
+        "small": {
+          "size": `${types.sizes.small/2}px`,
+          "height": "normal",
+        },
+        "medium": {
+          "size": `${types.sizes.small}px`,
+          "height": "normal",
+        },
+        "large": {
+          "size": `${types.sizes.small*1.5}px`,
+          "height": "normal",
+        },
+        "xlarge": {
+          "size": `${types.sizes.small*2}px`,
+          "height": "normal",
+        }
+      },
+      "4": {
+        "small": {
+          "size": `${types.sizes.xsmall/2}px`,
+          "height": "normal",
+        },
+        "medium": {
+          "size": `${types.sizes.xsmall}px`,
+          "height": "normal",
+        },
+        "large": {
+          "size": `${types.sizes.xsmall*1.5}px`,
+          "height": "normal",
+        },
+        "xlarge": {
+          "size": `${types.sizes.xsmall*2}px`,
+          "height": "normal",
+        }
+      },
+    },
+    "responsiveBreakpoint": "small",
+    "weight": 600
+  },
+  "paragraph": {
+    "small": {
+      "size": `${types.sizes.small}px`,
+      "height": "normal",
+    },
+    "medium": {
+      "size": `${types.sizes.medium}px`,
+      "height": "normal",
+    },
+    "large": {
+      "size": `${types.sizes.large}px`,
+      "height": "normal",
+    },
+    "xlarge": {
+      "size": `${types.sizes.xlarge}px`,
+      "height": "normal",
+    },
+    "xxlarge": {
+      "size": `${types.sizes.xxlarge}px`,
+      "height": "normal",
+    }
+  },
+  "radioButton": {
+    "border": {
+      "width": borderSize.medium
+    },
+    "check": {
+      "thickness": borderSize.medium
+    },
+  },
+  "checkbox": {
+    "check": {
+      "radius": "0px",
+      "thickness": borderSize.medium
+    },
+    "hover": {
+      "border": {
+        "color": {
+          "dark": "light-2",
+          "light": "dark-2"
+        }
+      }
+    },
+    "size": formFields.sizes.medium,
 };
 
 const global = defaultsDeep({}, globalOverides, defaultGlobal);
