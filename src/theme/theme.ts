@@ -1,5 +1,5 @@
 // https://github.com/grommet/grommet/wiki/Grommet-v2-theming-documentation
-import { colors, types, gridSpacing, borderSize, breakpoints, globalOverides, componentOverides } from './overides'
+import { colors, types, gridSpacing, borderSize, breakpoints, formFields, overrides } from './overrides'
 import { elevations } from './mixin';
 import { defaultsDeep } from "lodash";
 
@@ -107,6 +107,8 @@ const defaultGlobal = {
   },
   "spacing": gridSpacing.spacing,
   "size": gridSpacing.size,
+};
+const components = {
   "anchor": {
     "textDecoration": "none",
     "color": {
@@ -310,10 +312,11 @@ const defaultGlobal = {
       }
     },
     "size": formFields.sizes.medium,
-};
-
-const global = defaultsDeep({}, globalOverides, defaultGlobal);
-export default {
-  global,
-  ...componentOverides
+  }
 }
+const defaultTheme = {
+  global: defaultGlobal,
+  ...components
+}
+const theme = defaultsDeep({}, overrides, defaultTheme);
+export default theme

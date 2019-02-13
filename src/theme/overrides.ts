@@ -81,9 +81,5 @@ export const breakpoints = {
   "large": {}
 };
 
-export const componentOverides = {
 
-}
-export const globalOverides = {
-
-}
+export const overrides = {}
