@@ -35,6 +35,8 @@
     "@types/react-helmet": "5.0.8",
     "@types/styled-components": "^4.1.6",
     "babel-plugin-styled-components": "^1.10.0",
+    "core-js": "^2.6.4",
+    "devhub-components": "github:exodevhub/devhub-components",
     "gatsby": "^2.0.91",
     "gatsby-cli": "^2.4.8",
     "gatsby-image": "^2.0.26",

@@ -4,8 +4,9 @@ import * as React from 'react';
 import Helmet from 'react-helmet';
 import CardPost from '../components/CardPost';
 import Layout from '../components/Layout';
-import { CheckBox, RadioButton, FormField, Select } from 'grommet';
+import { CheckBox, RadioButton, FormField } from 'grommet';
 import { Inbox} from 'grommet-icons';
+import { Button } from 'devhub-components';
 
 interface BlogIndexProps {
   data: {
@@ -40,6 +41,7 @@ const BlogIndex = ({ data }: BlogIndexProps) => {
         <RadioButton name="testing" checked={true} readOnly/>
         <CheckBox  checked={true} toggle readOnly />
         <Inbox size="medium" />
+        <Button label="button"/>
         <FormField />
         {posts.map(({ node }: any) => {
           const title = _.getOr(
