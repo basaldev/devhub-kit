@@ -41,7 +41,6 @@ const BlogIndex = ({ data }: BlogIndexProps) => {
         <CheckBox  checked={true} toggle readOnly />
         <Inbox size="medium" />
         <FormField />
-        <Select />
         {posts.map(({ node }: any) => {
           const title = _.getOr(
             node.frontmatter.title,

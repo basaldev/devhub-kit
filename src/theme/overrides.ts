@@ -82,4 +82,10 @@ export const breakpoints = {
 };
 
 
-export const overrides = {}
+export const overrides = {
+  global: {
+    colors: {
+      brand: 'hotpink'
+    }
+  }
+}
