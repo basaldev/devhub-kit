@@ -78,6 +78,7 @@ const defaultGlobal = {
   },
   "font": {
     "size": types.sizes.medium,
+    "family": types.families.body,
     "height": "normal",
   },
   "hover": {

@@ -45,7 +45,7 @@ const CardPost = (props: CardPostProps) => (
           <Heading margin={{ vertical: 'small' }} level="2" size="medium">
             {props.title}
           </Heading>
-          <Text color="text">{props.excerpt}</Text>
+          <Text color="text" tag="p">{props.excerpt}</Text>
           <Text color="text" margin={{ top: 'small' }} size="small">
             {props.date}
           </Text>

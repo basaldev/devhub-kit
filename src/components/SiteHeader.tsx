@@ -1,11 +1,15 @@
 import { Link } from 'gatsby';
-import { Box, Heading, Text } from 'grommet';
+import { Box, Heading, Text, Menu, Grid } from 'grommet';
 import * as React from 'react';
 
 import siteConfig from '../../site-config';
 
 export default () => (
   <header>
+    <Grid
+     columns={['flex', 'small']}
+     gap="small"
+    >
     <Box margin="small">
       <Link
         style={{
@@ -14,13 +18,20 @@ export default () => (
         }}
         to="/"
       >
-        <Heading textAlign="center" color="brand" margin="small">
+        <Heading textAlign="left" color="brand" margin="small">
           {siteConfig.title}
         </Heading>
       </Link>
-      <Text color="text" textAlign="center">
-        {siteConfig.description}
-      </Text>
     </Box>
+    <Box align="center" margin={{top: "medium"}}>
+      <Menu
+      label="social"
+      items={[
+        { label: 'First Action', onClick: () => {} },
+        { label: 'Second Action', onClick: () => {} },
+      ]}
+      ></Menu>
+    </Box>
+    </Grid>
   </header>
 );

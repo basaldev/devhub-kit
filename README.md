@@ -8,7 +8,7 @@
 
 ⚡ [now.sh](https://zeit.co/now) Deployment
 
-👩‍🎤 Emotion JSS for Styling
+💅 Styled JSS for Styling
 
 ⚙️ Grommet for components
 

@@ -1,15 +1,12 @@
-import { Box, Grommet, FormField, TextInput, Select } from 'grommet';
+import { Box, Grommet } from 'grommet';
 import * as React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import siteTheme from '../theme/theme';
 
-import CardProfile from './CardProfile';
 import SiteFooter from './SiteFooter';
 import SiteHeader from './SiteHeader';
 import SEO from './SEO';
 import config from '../../site-config';
-// import '../../static/fonts.css';
-// import '../../static/critical.css';
 
 const GlobalStyle = createGlobalStyle`
   // Anything after critical CSS load
@@ -34,20 +31,6 @@ const Layout = ({ children, seo }: LayoutProps) => (
             <Box direction="row-responsive">
               <Box basis="xlarge">
                 {children}
-              </Box>
-              <Box basis="medium">
-                <aside>
-                  <CardProfile />
-              <FormField label="More" >
-                <TextInput value="t esting"></TextInput>
-              </FormField>
-                <TextInput value="testing"></TextInput>
-                <Select
-                  id="select"
-                  placeholder="placeholder"
-                  options={["test"]}
-                />
-                </aside>
               </Box>
             </Box>
           </main>

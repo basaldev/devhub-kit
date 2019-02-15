@@ -23,6 +23,9 @@ p {
 a {
   font-family: 'Roboto Mono', monospace;
 }
+a p {
+  font-family: 'Noto Sans JP', sans-serif;
+}
 ol, ul {
   list-style: none;
 }

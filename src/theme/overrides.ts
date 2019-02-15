@@ -14,7 +14,7 @@ export const gridSpacing = {
 
 export const types = {
   families: {
-    headings: `'Big John PRO', sans-serif`,
+    headings: `'Noto Sans JP', sans-serif`,
     body: `'Noto Sans JP', sans-serif`,
     mono: `'Roboto Mono', monospace`
   },

@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Gatsby Starter Blog Grommet v2',
+  title: 'Shenanigan news',
   description: 'This is a DEMO site! SSG - Gatsby JS, UI - Grommet v2',
   siteUrl: 'https://ganevru.github.io/gatsby-starter-blog-grommet/',
   logo: '/logo.svg',
