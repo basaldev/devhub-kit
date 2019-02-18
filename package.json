@@ -1,7 +1,7 @@
 {
   "name": "devhub-kit",
   "version": "1.0.0",
-  "description": "Blog boilerplate using GatsbyJS, Styled Components, Grommet, and Now for deployments",
+  "description": "Blog starter kit using GatsbyJS, Styled Components, Grommet, and Now for deployments",
   "keywords": [
     "gatsby",
     "grommet",
