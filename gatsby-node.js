@@ -1,7 +1,7 @@
-const { createFilePath } = require('gatsby-source-filesystem');
-const { templateSelector } = require('./gastby-template-selector');
+const { createFilePath } = require('gatsby-source-filesystem')
+const { templateSelector } = require('./gastby-template-selector')
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage } = actions
   const allMarkdownRemark = await graphql(
     `
       {
@@ -23,26 +23,26 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     `
-  );
+  )
 
   function createPagesFun(graphql) {
-    const posts = graphql.data.allMarkdownRemark.edges;
+    const posts = graphql.data.allMarkdownRemark.edges
     posts.forEach((post, index) => {
-      createPage(templateSelector(post, posts, index));
-    });
+      createPage(templateSelector(post, posts, index))
+    })
   }
-  await createPagesFun(allMarkdownRemark);
-};
+  await createPagesFun(allMarkdownRemark)
+}
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions;
+  const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode });
+    const value = createFilePath({ node, getNode })
     createNodeField({
       name: `slug`,
       node,
-      value
-    });
+      value,
+    })
   }
-};
+}

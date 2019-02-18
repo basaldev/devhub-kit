@@ -1,21 +1,21 @@
-import { Link } from 'gatsby';
-import { Box, Heading, Image, Text } from 'grommet';
-import * as React from 'react';
-import styled from 'styled-components';
+import { Link } from 'gatsby'
+import { Box, Heading, Image, Text } from 'grommet'
+import * as React from 'react'
+import styled from 'styled-components'
 
 const CardLink = styled(Link)`
   :hover {
     opacity: 0.8;
   }
   text-decoration: none;
-`;
+`
 
 interface CardPostProps {
-  link: string;
-  cover?: string;
-  title: string;
-  excerpt?: string;
-  date?: string;
+  link: string
+  cover?: string
+  title: string
+  excerpt?: string
+  date?: string
 }
 
 const CardPost = (props: CardPostProps) => (
@@ -25,14 +25,14 @@ const CardPost = (props: CardPostProps) => (
         top: 'small',
         bottom: 'small',
         right: 'small',
-        left: 'small'
+        left: 'small',
       }}
     >
       <CardLink to={props.link}>
         {props.cover ? (
           <div>
             <Box overflow="hidden">
-              <Box height="small" >
+              <Box height="small">
                 <Image src={props.cover} fit="cover" />
               </Box>
             </Box>
@@ -45,7 +45,9 @@ const CardPost = (props: CardPostProps) => (
           <Heading margin={{ vertical: 'small' }} level="2" size="medium">
             {props.title}
           </Heading>
-          <Text color="text" tag="p">{props.excerpt}</Text>
+          <Text color="text" tag="p">
+            {props.excerpt}
+          </Text>
           <Text color="text" margin={{ top: 'small' }} size="small">
             {props.date}
           </Text>
@@ -53,6 +55,6 @@ const CardPost = (props: CardPostProps) => (
       </CardLink>
     </Box>
   </article>
-);
+)
 
-export default CardPost;
+export default CardPost

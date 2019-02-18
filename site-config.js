@@ -21,11 +21,11 @@ module.exports = {
     banner: '',
     title: '',
     description: '',
-    language: ''
+    language: '',
   },
   intergrations: {
     facebookId: '',
     googleAnalyticsTrackingId: '',
-    googleTagManager: ''
-  }
-};
+    googleTagManager: '',
+  },
+}

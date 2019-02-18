@@ -1,48 +1,51 @@
-import { graphql } from 'gatsby';
-import * as _ from 'lodash/fp';
-import * as React from 'react';
-import Helmet from 'react-helmet';
-import CardPost from '../components/CardPost';
-import Layout from '../components/Layout';
-import { Inbox} from 'grommet-icons';
-import { Button } from 'devhub-components';
+import { graphql } from 'gatsby'
+import * as _ from 'lodash/fp'
+import * as React from 'react'
+import Helmet from 'react-helmet'
+import CardPost from '../components/CardPost'
+import Layout from '../components/Layout'
+import { Inbox } from 'grommet-icons'
+import { Button } from 'devhub-components'
 
 interface BlogIndexProps {
   data: {
     site: {
       siteMetadata: {
-        title: string;
-        description: string;
-      };
-    };
+        title: string
+        description: string
+      }
+    }
     allMarkdownRemark: {
-      edges: Array<any>;
-    };
-  };
+      edges: Array<any>
+    }
+  }
 }
 
 const BlogIndex = ({ data }: BlogIndexProps) => {
-  const siteTitle = data.site.siteMetadata.title;
-  const siteDescription = data.site.siteMetadata.description;
-  const posts = data.allMarkdownRemark.edges;
+  const siteTitle = data.site.siteMetadata.title
+  const siteDescription = data.site.siteMetadata.description
+  const posts = data.allMarkdownRemark.edges
 
   return (
-    <Layout seo={{
-      isPost: false
-    }} > {/* default SEO */}
+    <Layout
+      seo={{
+        isPost: false,
+      }}
+    >
+      {' '}
+      {/* default SEO */}
       <Helmet
         htmlAttributes={{ lang: 'en' }}
         meta={[{ name: 'description', content: siteDescription }]}
         title={siteTitle}
       />
       <main>
-
         {posts.map(({ node }: any) => {
           const title = _.getOr(
             node.frontmatter.title,
             'frontmatter.title',
             node
-          );
+          )
           return (
             <div key={node.fields.slug}>
               {node.frontmatter.cover === null ? (
@@ -53,22 +56,22 @@ const BlogIndex = ({ data }: BlogIndexProps) => {
                   excerpt={node.excerpt}
                 />
               ) : (
-                  <CardPost
-                    link={node.fields.slug}
-                    title={title}
-                    date={node.frontmatter.date}
-                    excerpt={node.excerpt}
-                  />
-                )}
+                <CardPost
+                  link={node.fields.slug}
+                  title={title}
+                  date={node.frontmatter.date}
+                  excerpt={node.excerpt}
+                />
+              )}
             </div>
-          );
+          )
         })}
       </main>
     </Layout>
-  );
-};
+  )
+}
 
-export default BlogIndex;
+export default BlogIndex
 
 export const pageQuery = graphql`
   query {
@@ -79,8 +82,9 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter:{frontmatter:{posttype:{eq:"post"}}},
-      sort: { fields: [frontmatter___date], order: DESC}) {
+      filter: { frontmatter: { posttype: { eq: "post" } } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       edges {
         node {
           excerpt
@@ -93,7 +97,7 @@ export const pageQuery = graphql`
             posttype
           }
         }
+      }
     }
   }
-  }
-`;
+`

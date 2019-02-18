@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 interface Props {
   htmlAttributes: object;
@@ -36,5 +36,5 @@ export default function HTML(props: Props) {
         {props.postBodyComponents}
       </body>
     </html>
-  );
+  )
 }

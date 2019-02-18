@@ -1,107 +1,107 @@
 /* eslint-disable react/require-default-props */
-import React from "react";
-import Helmet from "react-helmet";
+import React from 'react'
+import Helmet from 'react-helmet'
 
 interface Props {
   postNode: {
     frontmatter: {
-      title: string;
-      date: string;
-      banner: string;
-      author: string;
-    };
-    excerpt: string;
-  };
-  postPath: string;
-  postSEO: boolean;
+      title: string
+      date: string
+      banner: string
+      author: string
+    }
+    excerpt: string
+  }
+  postPath?: string
+  postSEO: boolean
   config: {
-    siteUrl: string;
-    company: string;
-    logo: string;
+    siteUrl: string
+    company: string
+    logo: string
     meta: {
-      title: string;
-      description: string;
-      banner: string;
-      language: string;
-    };
-    intergrations: any;
-    social: any;
-  };
+      title: string
+      description: string
+      banner: string
+      language: string
+    }
+    intergrations: any
+    social: any
+  }
 }
 
 const SEO = ({ postNode, postPath, postSEO, config }: Props) => {
-  let title = "";
-  let description = "";
-  let image = "";
-  let postURL = "";
+  let title = ''
+  let description = ''
+  let image = ''
+  let postURL = ''
   if (postSEO) {
-    const postMeta = postNode.frontmatter;
-    title = postMeta.title; // eslint-disable-line prefer-destructuring
-    description = postNode.excerpt;
-    image = postMeta.banner || config.meta.banner;
-    postURL = config.siteUrl + postPath; //should include /
+    const postMeta = postNode.frontmatter
+    title = postMeta.title // eslint-disable-line prefer-destructuring
+    description = postNode.excerpt
+    image = postMeta.banner || config.meta.banner
+    postURL = config.siteUrl + postPath //should include /
   } else {
-    title = config.meta.title;
-    description = config.meta.description;
-    image = config.meta.banner;
+    title = config.meta.title
+    description = config.meta.description
+    image = config.meta.banner
   }
-  const blogURL = config.siteUrl;
+  const blogURL = config.siteUrl
   let schemaOrgJSONLD = [
     {
-      "@context": "http://schema.org",
-      "@type": "WebSite",
-      "@id": blogURL,
+      '@context': 'http://schema.org',
+      '@type': 'WebSite',
+      '@id': blogURL,
       url: blogURL,
       name: title,
       image: {
-        "@type": "ImageObject",
-        url: config.meta.banner
-      }
-    }
-  ];
+        '@type': 'ImageObject',
+        url: config.meta.banner,
+      },
+    },
+  ]
   if (postSEO) {
     schemaOrgJSONLD = [
       {
-        "@context": "http://schema.org",
-        "@type": "BlogPosting",
-        "@id": postURL,
+        '@context': 'http://schema.org',
+        '@type': 'BlogPosting',
+        '@id': postURL,
         url: postURL,
         name: title,
         headline: title,
         image: {
-          "@type": "ImageObject",
-          url: image
+          '@type': 'ImageObject',
+          url: image,
         },
         description: description,
         datePublished: postNode.frontmatter.date,
         dateModified: postNode.frontmatter.date,
         author: {
-          "@type": "Person",
-          name: postNode.frontmatter.author
+          '@type': 'Person',
+          name: postNode.frontmatter.author,
         },
         publisher: {
-          "@type": "Organization",
+          '@type': 'Organization',
           name: config.company,
           logo: {
-            "@type": "ImageObject",
-            url: config.siteUrl + config.logo
-          }
+            '@type': 'ImageObject',
+            url: config.siteUrl + config.logo,
+          },
         },
         isPartOf: blogURL,
         mainEntityOfPage: {
-          "@type": "WebSite",
-          "@id": blogURL
-        }
-      }
-    ];
+          '@type': 'WebSite',
+          '@id': blogURL,
+        },
+      },
+    ]
   }
   const FacebookId = (
     <meta property="fb:app_id" content={config.intergrations.facebookId} />
-  );
+  )
   const TwitterCreator = config.social.twitter ? (
     <meta name="twitter:creator" content={config.social.twitter} />
-  ) : null;
-  const OgType = postSEO ? <meta property="og:type" content="article" /> : null;
+  ) : null
+  const OgType = postSEO ? <meta property="og:type" content="article" /> : null
   return (
     <Helmet>
       <html lang={config.meta.language} />
@@ -126,7 +126,7 @@ const SEO = ({ postNode, postPath, postSEO, config }: Props) => {
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
     </Helmet>
-  );
-};
+  )
+}
 
-export default SEO;
+export default SEO
