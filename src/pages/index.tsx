@@ -4,8 +4,6 @@ import * as React from 'react'
 import Helmet from 'react-helmet'
 import CardPost from '../components/CardPost'
 import Layout from '../components/Layout'
-import { Inbox } from 'grommet-icons'
-import { Button } from 'devhub-components'
 
 interface BlogIndexProps {
   data: {

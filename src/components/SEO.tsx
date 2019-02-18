@@ -12,7 +12,7 @@ interface Props {
     }
     excerpt: string
   }
-  postPath?: string
+  postPath?: string | undefined
   postSEO: boolean
   config: {
     siteUrl: string
@@ -29,6 +29,39 @@ interface Props {
   }
 }
 
+type SchemaOrgJSONLD = Array<{
+  '@context': string
+  '@type': string
+  '@id': string
+  url: string
+  name: string
+  headline?: string
+  image: {
+    '@type': string
+    url: string
+  }
+  description?: string
+  datePublished?: string
+  dateModified?: string
+  author?: {
+    '@type': string
+    name: string
+  }
+  publisher?: {
+    '@type': string
+    name: string
+    logo: {
+      '@type': string
+      url: string
+    }
+  }
+  isPartOf?: string
+  mainEntityOfPage?: {
+    '@type': string
+    '@id': string
+  }
+}>
+
 const SEO = ({ postNode, postPath, postSEO, config }: Props) => {
   let title = ''
   let description = ''
@@ -39,14 +72,14 @@ const SEO = ({ postNode, postPath, postSEO, config }: Props) => {
     title = postMeta.title // eslint-disable-line prefer-destructuring
     description = postNode.excerpt
     image = postMeta.banner || config.meta.banner
-    postURL = config.siteUrl + postPath //should include /
+    postURL = config.siteUrl + postPath // should include /
   } else {
     title = config.meta.title
     description = config.meta.description
     image = config.meta.banner
   }
   const blogURL = config.siteUrl
-  let schemaOrgJSONLD = [
+  let schemaOrgJSONLD: SchemaOrgJSONLD = [
     {
       '@context': 'http://schema.org',
       '@type': 'WebSite',

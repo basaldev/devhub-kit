@@ -1,5 +1,5 @@
 import { Link } from 'gatsby'
-import { Box, Heading, Text, Menu, Grid } from 'grommet'
+import { Box, Heading, Menu, Grid } from 'grommet'
 import * as React from 'react'
 
 import siteConfig from '../../site-config'
@@ -15,7 +15,7 @@ export default () => (
           }}
           to="/"
         >
-          <Heading textAlign="left" color="brand" margin="small">
+          <Heading textAlign="start" color="brand" margin="small">
             {siteConfig.title}
           </Heading>
         </Link>

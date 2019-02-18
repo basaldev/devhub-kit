@@ -1,4 +1,4 @@
-import { Box, Button, Image, Markdown, Text } from 'grommet'
+import { Box, Button, Image, Text } from 'grommet'
 import { Github, Reddit, Twitter } from 'grommet-icons'
 import * as React from 'react'
 
