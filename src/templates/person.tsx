@@ -29,6 +29,7 @@ interface PostProps {
     next: any
   }
 }
+
 const PeoplePost = ({ data }: PostProps) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
