@@ -1,6 +1,15 @@
 import React from "react";
 
-export default function HTML(props) {
+interface Props {
+  htmlAttributes: object;
+  headComponents: any[];
+  bodyAttributes: object;
+  preBodyComponents: any[];
+  body: string;
+  postBodyComponents: any[];
+}
+
+export default function HTML(props: Props) {
   return (
     <html {...props.htmlAttributes}>
       <head>
