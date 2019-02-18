@@ -1,12 +1,12 @@
-import React from 'react'
+import * as React from 'react'
 
 interface Props {
-  htmlAttributes: object;
-  headComponents: any[];
-  bodyAttributes: object;
-  preBodyComponents: any[];
-  body: string;
-  postBodyComponents: any[];
+  htmlAttributes: object
+  headComponents: any[]
+  bodyAttributes: object
+  preBodyComponents: any[]
+  body: string
+  postBodyComponents: any[]
 }
 
 export default function HTML(props: Props) {
