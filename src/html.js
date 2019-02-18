@@ -1,5 +1,4 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from "react";
 
 export default function HTML(props) {
   return (
@@ -11,8 +10,8 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        <link rel="prefetch alternate stylesheet" href="/fonts.css" ></link>
-        <link rel="prefetch stylesheet" href="/critical.css" ></link>
+        <link rel="prefetch alternate stylesheet" href="/fonts.css" />
+        <link rel="prefetch stylesheet" href="/critical.css" />
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
@@ -28,14 +27,5 @@ export default function HTML(props) {
         {props.postBodyComponents}
       </body>
     </html>
-  )
-}
-
-HTML.propTypes = {
-  htmlAttributes: PropTypes.object,
-  headComponents: PropTypes.array,
-  bodyAttributes: PropTypes.object,
-  preBodyComponents: PropTypes.array,
-  body: PropTypes.string,
-  postBodyComponents: PropTypes.array,
+  );
 }
