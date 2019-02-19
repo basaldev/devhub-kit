@@ -1,40 +1,41 @@
-import { graphql } from 'gatsby';
-import { Box, Heading, Image, Text } from 'grommet';
-import * as _ from 'lodash/fp';
-import * as React from 'react';
-import Helmet from 'react-helmet';
-import Layout from '../components/Layout';
+import { graphql } from 'gatsby'
+import { Box, Heading, Image, Text } from 'grommet'
+import * as _ from 'lodash/fp'
+import * as React from 'react'
+import Helmet from 'react-helmet'
+import Layout from '../components/Layout'
 
 interface PostProps {
   data: {
     markdownRemark: {
-      excerpt: string;
+      excerpt: string
       frontmatter: {
-        title: string;
+        title: string
         cover?: {
-          childImageSharp: { fluid: { src: string } };
-        };
-        date?: string;
-      };
-      html: string;
-    };
+          childImageSharp: { fluid: { src: string } }
+        }
+        date?: string
+      }
+      html: string
+    }
     site: {
       siteMetadata: {
-        title: string;
-      };
-    };
-  };
+        title: string
+      }
+    }
+  }
   pageContext: {
-    previous: any;
-    next: any;
-  };
+    previous: any
+    next: any
+  }
 }
+
 const PeoplePost = ({ data }: PostProps) => {
-  const post = data.markdownRemark;
-  const siteTitle = data.site.siteMetadata.title;
-  const siteDescription = post.excerpt;
+  const post = data.markdownRemark
+  const siteTitle = data.site.siteMetadata.title
+  const siteDescription = post.excerpt
   return (
-    <Layout seo={{isPost: true, node:post}}>
+    <Layout seo={{ isPost: true, node: post }}>
       <div>
         <article>
           <Box margin="small">
@@ -76,15 +77,14 @@ const PeoplePost = ({ data }: PostProps) => {
           </Box>
         </article>
         <aside>
-          <Box direction="row" justify="center" gap="large" margin="large">
-          </Box>
+          <Box direction="row" justify="center" gap="large" margin="large" />
         </aside>
       </div>
     </Layout>
-  );
-};
+  )
+}
 
-export default PeoplePost;
+export default PeoplePost
 
 export const pageQuery = graphql`
   query PeoplePostBySlug($slug: String!) {
@@ -101,8 +101,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
-
       }
     }
   }
-`;
+`

@@ -1,19 +1,19 @@
 module.exports = {
-  title: 'Shenanigan news',
+  title: 'Shenanigans News',
   description: 'This is a DEMO site! SSG - Gatsby JS, UI - Grommet v2',
-  siteUrl: 'https://ganevru.github.io/gatsby-starter-blog-grommet/',
+  siteUrl: 'https://github.com/exodevhub/Devhub-kit',
   logo: '/logo.svg',
   company: 'Your Company',
   // Blog Author Info:
-  author: 'Ivan Ganev',
+  author: 'Alex King',
   authorImage:
     'https://pbs.twimg.com/profile_images/986603715732934656/7A4Nt68k_400x400.jpg',
   authorBio:
-    "Hello, I'm Ivan Ganev and I made this blog starter for Gatsby js using UI Grommet v2. <br><br>Repo of this starter: [github.com/ganevru/gatsby-starter-blog-grommet](https://github.com/ganevru/gatsby-starter-blog-grommet) <br><br>Go here: site-config.js, and replace this text with your own", // You can use Markdown markup here
+    "Hello, I'm Alex King and I made this blog starter for GatsbyJS using UI Grommet v2. <br><br>Repo of this starter: [github.com/exodevhub/Devhub-kit](https://github.com/exodevhub/Devhub-kit) <br><br>Go here: site-config.js, and replace this text with your own", // You can use Markdown markup here
   social: {
-    twitter: 'ganevru',
-    github: 'ganevru',
-    reddit: 'ganevru',
+    twitter: '',
+    github: '',
+    reddit: '',
     medium: '',
     discord: '',
   },
@@ -21,11 +21,11 @@ module.exports = {
     banner: '',
     title: '',
     description: '',
-    language: ''
+    language: '',
   },
   intergrations: {
     facebookId: '',
     googleAnalyticsTrackingId: '',
-    googleTagManager: ''
-  }
-};
+    googleTagManager: '',
+  },
+}

@@ -62,3 +62,6 @@ typings/
 .next
 # build folder
 public
+
+# VS Code Workspace Settings
+.vscode/

@@ -1,12 +1,12 @@
-import * as React from 'react';
+import * as React from 'react'
 
-import Layout from '../components/Layout';
+import Layout from '../components/Layout'
 
 const NotFoundPage = () => (
-  <Layout seo={{isPost: false}}>
+  <Layout seo={{ isPost: false }}>
     <h1>NOT FOUND</h1>
     <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
   </Layout>
-);
+)
 
-export default NotFoundPage;
+export default NotFoundPage
