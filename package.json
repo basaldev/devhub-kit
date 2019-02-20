@@ -1,19 +1,21 @@
 {
-  "name": "gatsby-starter-blog-grommet",
+  "name": "devhub-kit",
   "version": "1.0.0",
-  "description": "Starter Gatsby Blog wish Grommet v2",
+  "description": "Blog starter kit using GatsbyJS, Styled Components, Grommet, and Now for deployments",
   "keywords": [
     "gatsby",
     "grommet",
-    "typescript"
+    "styled-components",
+    "typescript",
+    "now"
   ],
-  "homepage": "https://github.com/ganevru/gatsby-starter-blog-grommet",
+  "homepage": "https://github.com/exodevhub/Devhub-kit",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ganevru/gatsby-starter-blog-grommet.git"
+    "url": "git+https://github.com/exodevhub/Devhub-kit.git"
   },
   "license": "MIT",
-  "author": "Ivan Ganev <iganevru@gmail.com>",
+  "author": "Alex King <alex@exodevhub.com>",
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
@@ -24,7 +26,8 @@
     "lint": "npm run lint:ts && npm run lint:js",
     "lint-staged": "lint-staged",
     "lint:js": "eslint \"./src/**/*.js\" \"./src/**/*.jsx\"",
-    "lint:ts": "eslint \"./src/**/*.ts\" \"./src/**/*.tsx\""
+    "lint:ts": "eslint \"./src/**/*.ts\" \"./src/**/*.tsx\"",
+    "prettier": "prettier --write \"**/*.js\" \"**/*.jsx\" \"**/*.ts\" \"**/*.tsx\""
   },
   "dependencies": {
     "@emotion/styled": "^10.0.7",
@@ -80,7 +83,8 @@
     "eslint-plugin-prettier": "^3.0.1",
     "husky": "^1.3.1",
     "lint-staged": "^8.1.0",
-    "prettier": "^1.16.1"
+    "prettier": "1.16.4",
+    "pretty-quick": "^1.10.0"
   },
   "husky": {
     "hooks": {
@@ -90,10 +94,12 @@
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
       "eslint --fix",
+      "pretty-quick --staged",
       "git add"
     ],
     "src/**/*.{js,jsx}": [
       "eslint --fix",
+      "pretty-quick --staged",
       "git add"
     ]
   }

@@ -1,41 +1,40 @@
-import { graphql } from 'gatsby';
-import { Box, Button, Heading, Image, Text } from 'grommet';
-import { Next as NextIcon, Previous as PreviousIcon } from 'grommet-icons';
-import * as _ from 'lodash/fp';
-import * as React from 'react';
-import Helmet from 'react-helmet';
+import { graphql } from 'gatsby'
+import { Box, Button, Heading, Image, Text } from 'grommet'
+import { Next as NextIcon, Previous as PreviousIcon } from 'grommet-icons'
+import * as _ from 'lodash/fp'
+import * as React from 'react'
 
-import Layout from '../components/Layout';
+import Layout from '../components/Layout'
 
 interface BlogPostProps {
   data: {
     markdownRemark: {
-      excerpt: string;
+      excerpt: string
       frontmatter: {
-        title: string;
+        title: string
         cover?: {
-          childImageSharp: { fluid: { src: string } };
-        };
-        date?: string;
-      };
-      html: string;
-    };
+          childImageSharp: { fluid: { src: string } }
+        }
+        date?: string
+      }
+      html: string
+    }
     site: {
       siteMetadata: {
-        title: string;
-      };
-    };
-  };
+        title: string
+      }
+    }
+  }
   pageContext: {
-    previous: any;
-    next: any;
-  };
+    previous: any
+    next: any
+  }
 }
 
 const blogPost = ({ data, pageContext: { previous, next } }: BlogPostProps) => {
-  const post = data.markdownRemark;
+  const post = data.markdownRemark
   return (
-    <Layout seo={{isPost: true, node:post}}>
+    <Layout seo={{ isPost: true, node: post }}>
       <div>
         <article>
           <Box margin="small">
@@ -93,10 +92,10 @@ const blogPost = ({ data, pageContext: { previous, next } }: BlogPostProps) => {
         </aside>
       </div>
     </Layout>
-  );
-};
+  )
+}
 
-export default blogPost;
+export default blogPost
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
@@ -114,8 +113,7 @@ export const pageQuery = graphql`
         title
         author
         date(formatString: "MMMM DD, YYYY")
-
       }
     }
   }
-`;
+`

@@ -1,13 +1,10 @@
-import { Box, Markdown, Text } from 'grommet';
-import * as React from 'react';
-
-import siteConfig from '../../site-config';
+import { Box, Text } from 'grommet'
+import * as React from 'react'
 
 export default () => (
   <footer>
     <Box pad="large" align="center">
-      <Text color="text">
-      </Text>
+      <Text color="text" />
     </Box>
   </footer>
-);
+)

@@ -1,8 +1,8 @@
-import { Box, Button, Image, Markdown, Text } from 'grommet';
-import { Github, Reddit, Twitter } from 'grommet-icons';
-import * as React from 'react';
+import { Box, Button, Image, Text } from 'grommet'
+import { Github, Reddit, Twitter } from 'grommet-icons'
+import * as React from 'react'
 
-import siteConfig from '../../site-config';
+import siteConfig from '../../site-config'
 
 export default () => (
   <div>
@@ -64,9 +64,8 @@ export default () => (
         )}
       </Box>
       <Box overflow="hidden">
-        <Text size="small" color="text">
-        </Text>
+        <Text size="small" color="text" />
       </Box>
     </Box>
   </div>
-);
+)

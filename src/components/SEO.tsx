@@ -8,45 +8,78 @@ interface Props {
       title: string
       date: string
       banner: string
-      author: string;
+      author: string
     }
     excerpt: string
   }
-  postPath: string
+  postPath?: string | undefined
   postSEO: boolean
   config: {
-    siteUrl: string;
-    company:string;
-    logo: string;
+    siteUrl: string
+    company: string
+    logo: string
     meta: {
-      title: string;
-      description: string;
-      banner: string;
-      language: string;
+      title: string
+      description: string
+      banner: string
+      language: string
     }
-    intergrations: any;
-    social: any;
+    intergrations: any
+    social: any
   }
 }
 
+type SchemaOrgJSONLD = Array<{
+  '@context': string
+  '@type': string
+  '@id': string
+  url: string
+  name: string
+  headline?: string
+  image: {
+    '@type': string
+    url: string
+  }
+  description?: string
+  datePublished?: string
+  dateModified?: string
+  author?: {
+    '@type': string
+    name: string
+  }
+  publisher?: {
+    '@type': string
+    name: string
+    logo: {
+      '@type': string
+      url: string
+    }
+  }
+  isPartOf?: string
+  mainEntityOfPage?: {
+    '@type': string
+    '@id': string
+  }
+}>
+
 const SEO = ({ postNode, postPath, postSEO, config }: Props) => {
-  let title
-  let description
-  let image
-  let postURL
+  let title = ''
+  let description = ''
+  let image = ''
+  let postURL = ''
   if (postSEO) {
     const postMeta = postNode.frontmatter
     title = postMeta.title // eslint-disable-line prefer-destructuring
     description = postNode.excerpt
-    image = postMeta.banner || config.meta.banner;
-    postURL = config.siteUrl + postPath //should include /
+    image = postMeta.banner || config.meta.banner
+    postURL = config.siteUrl + postPath // should include /
   } else {
     title = config.meta.title
     description = config.meta.description
-    image = config.meta.banner;
+    image = config.meta.banner
   }
-  const blogURL = config.siteUrl;
-  let schemaOrgJSONLD = [
+  const blogURL = config.siteUrl
+  let schemaOrgJSONLD: SchemaOrgJSONLD = [
     {
       '@context': 'http://schema.org',
       '@type': 'WebSite',
@@ -95,15 +128,13 @@ const SEO = ({ postNode, postPath, postSEO, config }: Props) => {
       },
     ]
   }
-  const FacebookId = (<meta
-    property="fb:app_id"
-    content={config.intergrations.facebookId}
-  />)
-  const TwitterCreator = config.social.twitter ? (<meta
-    name="twitter:creator"
-    content={config.social.twitter}
-  />): null;
-  const OgType = postSEO ?  (<meta property="og:type" content="article" />) : null;
+  const FacebookId = (
+    <meta property="fb:app_id" content={config.intergrations.facebookId} />
+  )
+  const TwitterCreator = config.social.twitter ? (
+    <meta name="twitter:creator" content={config.social.twitter} />
+  ) : null
+  const OgType = postSEO ? <meta property="og:type" content="article" /> : null
   return (
     <Helmet>
       <html lang={config.meta.language} />
@@ -114,10 +145,7 @@ const SEO = ({ postNode, postPath, postSEO, config }: Props) => {
         {JSON.stringify(schemaOrgJSONLD)}
       </script>
       <meta property="og:locale" content={config.meta.language} />
-      <meta
-        property="og:site_name"
-        content={config.meta.title}
-      />
+      <meta property="og:site_name" content={config.meta.title} />
       <meta property="og:url" content={postSEO ? postURL : blogURL} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />

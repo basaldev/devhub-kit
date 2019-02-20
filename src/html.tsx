@@ -1,7 +1,15 @@
-import React from "react"
-import PropTypes from "prop-types"
+import * as React from 'react'
 
-export default function HTML(props) {
+interface Props {
+  htmlAttributes: object
+  headComponents: any[]
+  bodyAttributes: object
+  preBodyComponents: any[]
+  body: string
+  postBodyComponents: any[]
+}
+
+export default function HTML(props: Props) {
   return (
     <html {...props.htmlAttributes}>
       <head>
@@ -11,8 +19,8 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        <link rel="prefetch alternate stylesheet" href="/fonts.css" ></link>
-        <link rel="prefetch stylesheet" href="/critical.css" ></link>
+        <link rel="prefetch alternate stylesheet" href="/fonts.css" />
+        <link rel="prefetch stylesheet" href="/critical.css" />
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
@@ -29,13 +37,4 @@ export default function HTML(props) {
       </body>
     </html>
   )
-}
-
-HTML.propTypes = {
-  htmlAttributes: PropTypes.object,
-  headComponents: PropTypes.array,
-  bodyAttributes: PropTypes.object,
-  preBodyComponents: PropTypes.array,
-  body: PropTypes.string,
-  postBodyComponents: PropTypes.array,
 }
