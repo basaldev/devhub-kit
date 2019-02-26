@@ -1,8 +1,10 @@
 ---
-fullName: Alex King
-github: stagfoo
-twitter: stagfoo
-image: '/assets/alex.jpg'
+fullName: Alex
 posttype: person
-date: 2019-01-18T09:04:31.645Z
+image: https://picsum.photos/700/300/?image=10
 ---
+
+Content Text goes here
+Inline images
+
+![](https://picsum.photos/300/300/?image=20)

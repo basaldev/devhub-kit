@@ -28,8 +28,8 @@ exports.createPages = async ({ graphql, actions }) => {
 
   function createPagesFun(graphql) {
     const posts = graphql.data.allMarkdownRemark.edges
-    posts.forEach((post, index) => {
-      createPage(templateSelector(post, posts, index))
+    posts.forEach(post => {
+      createPage(templateSelector(post, posts))
     })
   }
   await createPagesFun(allMarkdownRemark)

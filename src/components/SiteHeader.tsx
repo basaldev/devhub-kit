@@ -1,4 +1,4 @@
-import { Link } from 'gatsby'
+import { Link, navigate } from 'gatsby'
 import { Box, Heading, Menu, Grid } from 'grommet'
 import * as React from 'react'
 
@@ -11,7 +11,6 @@ export default () => (
         <Link
           style={{
             boxShadow: 'none',
-            textDecoration: 'none',
           }}
           to="/"
         >
@@ -22,10 +21,20 @@ export default () => (
       </Box>
       <Box align="center" margin={{ top: 'medium' }}>
         <Menu
-          label="social"
+          label="Menu"
           items={[
-            { label: 'First Action', onClick: () => {} },
-            { label: 'Second Action', onClick: () => {} },
+            {
+              label: 'Blog',
+              onClick: () => {
+                navigate('/')
+              },
+            },
+            {
+              label: 'People',
+              onClick: () => {
+                navigate('/people')
+              },
+            },
           ]}
         />
       </Box>
