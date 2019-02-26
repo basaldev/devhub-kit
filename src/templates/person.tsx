@@ -10,10 +10,8 @@ interface PostProps {
     markdownRemark: {
       excerpt: string
       frontmatter: {
-        title: string
-        cover?: {
-          childImageSharp: { fluid: { src: string } }
-        }
+        fullName: string
+        image: string
         date?: string
       }
       html: string
@@ -32,53 +30,16 @@ interface PostProps {
 
 const PeoplePost = ({ data }: PostProps) => {
   const post = data.markdownRemark
-  const siteTitle = data.site.siteMetadata.title
-  const siteDescription = post.excerpt
   return (
     <Layout seo={{ isPost: true, node: post }}>
       <div>
         <article>
           <Box margin="small">
-            <Helmet
-              htmlAttributes={{ lang: 'en' }}
-              meta={[{ name: 'description', content: siteDescription }]}
-              title={post.frontmatter.title + '|' + siteTitle}
-            />
-            <div>
-              <header>
-                {post.frontmatter.cover ? (
-                  <Box overflow="hidden">
-                    <Box basis="medium" fill={true}>
-                      <Image
-                        fit="cover"
-                        title={post.frontmatter.title}
-                        alt={post.frontmatter.title}
-                        src={post.frontmatter.cover.childImageSharp.fluid.src}
-                      />
-                    </Box>
-                  </Box>
-                ) : (
-                  ''
-                )}
-
-                <Box pad={{ horizontal: 'medium' }}>
-                  <Heading margin={{ top: 'large', bottom: 'small' }} level="1">
-                    {post.frontmatter.title}
-                  </Heading>
-                  <Text margin={{ bottom: 'small' }}>
-                    {post.frontmatter.date}
-                  </Text>
-                </Box>
-              </header>
-            </div>
-            <Box pad={{ horizontal: 'medium' }}>
-              <div dangerouslySetInnerHTML={{ __html: post.html }} />
-            </Box>
+            <img src={post.frontmatter.image} />
+            <Heading>{post.frontmatter.fullName}</Heading>
+            <div dangerouslySetInnerHTML={{ __html: post.html }} />
           </Box>
         </article>
-        <aside>
-          <Box direction="row" justify="center" gap="large" margin="large" />
-        </aside>
       </div>
     </Layout>
   )
@@ -95,12 +56,10 @@ export const pageQuery = graphql`
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
-      excerpt
       html
       frontmatter {
-        title
-        date(formatString: "MMMM DD, YYYY")
+        fullName
+        image
       }
     }
   }
