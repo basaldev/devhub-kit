@@ -1,14 +1,14 @@
 import Grid from '@material-ui/core/Grid'
 import React from 'react'
-import { createGlobalStyle } from 'styled-components'
+import { Global, css } from '@emotion/core'
 
 import SiteFooter from './SiteFooter'
 import SiteHeader from './SiteHeader'
 import SEO from './SEO'
 import config from '../../site-config'
 
-const GlobalStyle = createGlobalStyle`
-  // Anything after critical CSS load
+const globalStyles = css`
+  // Any styles to apply globally after critical CSS load
 `
 
 interface LayoutProps {
@@ -21,7 +21,7 @@ interface LayoutProps {
 
 const Layout = ({ children, seo }: LayoutProps) => (
   <>
-    <GlobalStyle />
+    <Global styles={globalStyles} />
     <SEO postSEO={seo.isPost} config={config} postNode={seo.node} />
     <Grid container direction="column">
       <Grid item>

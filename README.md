@@ -6,7 +6,7 @@
 
 🗒️ [GatsbyJS](https://www.gatsbyjs.org/) for generating your blog front-end (based on [React](https://reactjs.org/))
 
-💅 [Styled Components](https://www.styled-components.com/) for styling your blog
+💅 [Emotion](https://emotion.sh) for styling your blog
 
 ⚙️ [Material UI](https://material-ui.com/) for creating useful React components (eg. buttons and menus)
 
