@@ -1,6 +1,6 @@
 module.exports = {
   title: 'Shenaniganews',
-  description: 'This is a DEMO site! SSG - Gatsby JS, UI - Grommet v2',
+  description: 'This is a DEMO site! SSG - Gatsby JS, UI - Material UI',
   siteUrl: 'https://github.com/exodevhub/Devhub-kit',
   logo: '/logo.svg',
   company: 'Your Company',

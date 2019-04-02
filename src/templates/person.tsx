@@ -1,8 +1,8 @@
 import { graphql } from 'gatsby'
-import { Box, Heading, Image, Text } from 'grommet'
-import * as _ from 'lodash/fp'
-import * as React from 'react'
-import Helmet from 'react-helmet'
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
+import React from 'react'
+
 import Layout from '../components/Layout'
 
 interface PostProps {
@@ -34,11 +34,17 @@ const PeoplePost = ({ data }: PostProps) => {
     <Layout seo={{ isPost: true, node: post }}>
       <div>
         <article>
-          <Box margin="small">
-            <img src={post.frontmatter.image} />
-            <Heading>{post.frontmatter.fullName}</Heading>
-            <div dangerouslySetInnerHTML={{ __html: post.html }} />
-          </Box>
+          <Grid container direction="column">
+            <Grid item>
+              <img src={post.frontmatter.image} />
+            </Grid>
+            <Grid item>
+              <Typography variant="h2">{post.frontmatter.fullName}</Typography>
+            </Grid>
+            <Grid item>
+              <div dangerouslySetInnerHTML={{ __html: post.html }} />
+            </Grid>
+          </Grid>
         </article>
       </div>
     </Layout>

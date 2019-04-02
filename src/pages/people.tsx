@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby'
-import * as _ from 'lodash/fp'
-import * as React from 'react'
+import React from 'react'
 import Helmet from 'react-helmet'
+
 import CardPost from '../components/CardPost'
 import Layout from '../components/Layout'
 

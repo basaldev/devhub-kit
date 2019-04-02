@@ -1,7 +1,6 @@
-import { Box, Grommet } from 'grommet'
-import * as React from 'react'
+import Grid from '@material-ui/core/Grid'
+import React from 'react'
 import { createGlobalStyle } from 'styled-components'
-import siteTheme from '../theme/theme'
 
 import SiteFooter from './SiteFooter'
 import SiteHeader from './SiteHeader'
@@ -21,21 +20,19 @@ interface LayoutProps {
 }
 
 const Layout = ({ children, seo }: LayoutProps) => (
-  <Grommet theme={siteTheme}>
+  <>
     <GlobalStyle />
     <SEO postSEO={seo.isPost} config={config} postNode={seo.node} />
-    <Box direction="column" align="center">
-      <Box width="xlarge">
+    <Grid container direction="column">
+      <Grid item>
         <SiteHeader />
-        <main>
-          <Box direction="row-responsive">
-            <Box basis="xlarge">{children}</Box>
-          </Box>
-        </main>
-      </Box>
-    </Box>
+      </Grid>
+      <Grid item>
+        <main>{children}</main>
+      </Grid>
+    </Grid>
     <SiteFooter />
-  </Grommet>
+  </>
 )
 
 export default Layout

@@ -1,6 +1,6 @@
-import * as React from 'react'
+import React from 'react'
 
-interface Props {
+interface IProps {
   htmlAttributes: object
   headComponents: any[]
   bodyAttributes: object
@@ -9,7 +9,7 @@ interface Props {
   postBodyComponents: any[]
 }
 
-export default function HTML(props: Props) {
+export default function HTML(props: IProps) {
   return (
     <html {...props.htmlAttributes}>
       <head>

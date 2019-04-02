@@ -1,8 +1,10 @@
-import { graphql } from 'gatsby'
-import { Box, Button, Heading, Image, Text } from 'grommet'
-import { Next as NextIcon, Previous as PreviousIcon } from 'grommet-icons'
-import * as _ from 'lodash/fp'
-import * as React from 'react'
+import { graphql, navigate } from 'gatsby'
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
+import Button from '@material-ui/core/Button'
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos'
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos'
+import React from 'react'
 
 import Layout from '../components/Layout'
 
@@ -37,58 +39,53 @@ const blogPost = ({ data, pageContext: { previous, next } }: BlogPostProps) => {
     <Layout seo={{ isPost: true, node: post }}>
       <div>
         <article>
-          <Box margin="small">
+          <Grid>
             <div>
               <header>
-                {post.frontmatter.cover ? (
-                  <Box overflow="hidden">
-                    <Box basis="medium" fill={true}>
-                      <Image
-                        fit="cover"
-                        title={post.frontmatter.title}
-                        alt={post.frontmatter.title}
-                        src={post.frontmatter.cover.childImageSharp.fluid.src}
-                      />
-                    </Box>
-                  </Box>
-                ) : (
-                  ''
-                )}
-
-                <Box pad={{ horizontal: 'medium' }}>
-                  <Heading margin={{ top: 'large', bottom: 'small' }} level="1">
-                    {post.frontmatter.title}
-                  </Heading>
-                  <Text margin={{ bottom: 'small' }}>
+                <Grid>
+                  <Typography variant="h3">{post.frontmatter.title}</Typography>
+                  <Typography variant="body2">
                     {post.frontmatter.date}
-                  </Text>
-                </Box>
+                  </Typography>
+                </Grid>
               </header>
             </div>
-            <Box pad={{ horizontal: 'medium' }}>
+            <Grid>
               <div dangerouslySetInnerHTML={{ __html: post.html }} />
-            </Box>
-          </Box>
+            </Grid>
+          </Grid>
         </article>
         <aside>
-          <Box direction="row" justify="center" gap="large" margin="large">
+          <Grid container direction="row" justify="center">
             {previous && (
-              <Button
-                href={previous.fields.slug}
-                icon={<PreviousIcon />}
-                label="Previous"
-              />
+              <Grid item>
+                <Button
+                  variant="contained"
+                  onClick={() => {
+                    if (previous.fields.slug)
+                      navigate(`${previous.fields.slug}`)
+                  }}
+                >
+                  <ArrowBackIosIcon />
+                  Older Posts
+                </Button>
+              </Grid>
             )}
 
             {next && (
-              <Button
-                href={next.fields.slug}
-                icon={<NextIcon />}
-                label="Next"
-                reverse={true}
-              />
+              <Grid item>
+                <Button
+                  variant="contained"
+                  onClick={() => {
+                    if (next.fields.slug) navigate(`${next.fields.slug}`)
+                  }}
+                >
+                  <ArrowForwardIosIcon />
+                  Newer Posts
+                </Button>
+              </Grid>
             )}
-          </Box>
+          </Grid>
         </aside>
       </div>
     </Layout>

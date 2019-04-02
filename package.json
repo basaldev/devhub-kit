@@ -1,10 +1,9 @@
 {
   "name": "devhub-kit",
   "version": "1.0.0",
-  "description": "Blog starter kit using GatsbyJS, Styled Components, Grommet, and Now for deployments",
+  "description": "Blog starter kit using GatsbyJS, Styled Components, and Now for deployments",
   "keywords": [
     "gatsby",
-    "grommet",
     "styled-components",
     "typescript",
     "now"
@@ -31,6 +30,7 @@
   },
   "dependencies": {
     "@emotion/styled": "^10.0.7",
+    "@material-ui/icons": "^3.0.2",
     "@types/lodash": "^4.14.120",
     "@types/node": "^10.12.18",
     "@types/react": "^16.7.20",
@@ -39,7 +39,7 @@
     "@types/styled-components": "^4.1.6",
     "babel-plugin-styled-components": "^1.10.0",
     "core-js": "^2.6.4",
-    "devhub-components": "github:exodevhub/devhub-components",
+    "devhub-components": "github:exodevhub/exodev-components#develop",
     "gatsby": "^2.0.91",
     "gatsby-cli": "^2.4.8",
     "gatsby-image": "^2.0.26",
@@ -60,10 +60,6 @@
     "gatsby-source-filesystem": "^2.0.16",
     "gatsby-transformer-remark": "^2.2.0",
     "gatsby-transformer-sharp": "^2.1.10",
-    "grommet": "^2.3.1",
-    "grommet-icons": "^4.1.0",
-    "grommet-theme-aruba": "^0.1.0",
-    "grommet-theme-dxc": "^0.1.0",
     "lodash": "^4.17.11",
     "markdown-to-jsx": "6.9.0",
     "react": "^16.7.0",

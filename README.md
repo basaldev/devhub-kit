@@ -1,6 +1,6 @@
 > ![Exo Devhub](docs/logo.svg)
 >
-> Create your blog or static website using GatsbyJS, Styled Components, and Grommet
+> Create your blog or static website using GatsbyJS, Styled Components, and Material UI
 
 ## Tech Stack
 
@@ -8,7 +8,7 @@
 
 💅 [Styled Components](https://www.styled-components.com/) for styling your blog
 
-⚙️ [Grommet](https://v2.grommet.io/) for creating useful React components (eg. buttons and menus)
+⚙️ [Material UI](https://material-ui.com/) for creating useful React components (eg. buttons and menus)
 
 ⚡ [Now](https://zeit.co/now) for deploying your blog
 
@@ -53,7 +53,7 @@ The `now.json` file is in the root of the project. This sets the name and the bu
 - Make sure you have a `now-build` script inside your `package.json` file
 - Once set up, create a pull request from `develop` into `master`, you will get a _now.sh_ link.
 
-### Styling Grommet
+### Styling Material UI
 
 ### SEO
 

@@ -1,10 +1,5 @@
-import { Box, Text } from 'grommet'
-import * as React from 'react'
+import React from 'react'
 
-export default () => (
-  <footer>
-    <Box pad="large" align="center">
-      <Text color="text" />
-    </Box>
-  </footer>
-)
+const Footer = () => <footer>Footer</footer>
+
+export default Footer
