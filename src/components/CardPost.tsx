@@ -18,7 +18,7 @@ const CardPost = (props: CardPostProps) => {
 
   return (
     <article>
-      <Paper style={{ padding: 24 }}>
+      <Paper css={styles.paper}>
         <Link to={props.link} css={styles.link}>
           <Grid container direction="column" spacing={24}>
             <Grid item>
@@ -40,12 +40,13 @@ const CardPost = (props: CardPostProps) => {
 // @ts-ignore
 const getStyles = (props: CardPostProps) => ({
   link: css`
-    :hover {
-      opacity: 0.5;
-      color: red;
-    }
     text-decoration: none;
-    color: red;
+  `,
+  paper: css`
+    :hover {
+      background-color: yellow;
+    }
+    padding: 24px;
   `,
 })
 

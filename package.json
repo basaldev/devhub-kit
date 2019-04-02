@@ -19,6 +19,7 @@
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
+    "serve": "gatsby serve",
     "precommit": "lint-staged",
     "dev": "gatsby develop",
     "start": "gatsby develop",
